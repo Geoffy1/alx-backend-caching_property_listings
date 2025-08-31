@@ -1,4 +1,4 @@
-from django.core.cache import cache
+from django. core.cache import cache
 from .models import Property
 import logging
 from django_redis import get_redis_connection
@@ -20,10 +20,10 @@ def get_redis_cache_metrics():
         keyspace_hits = info.get('keyspace_hits', 0)
         keyspace_misses = info.get('keyspace_misses', 0)
 
-        total_queries = keyspace_hits + keyspace_misses
+        total_requests = keyspace_hits + keyspace_misses
 
-        if total_queries > 0:
-            hit_ratio = keyspace_hits / total_queries
+        if total_requests > 0:
+            hit_ratio = keyspace_hits / total_requests
         else:
             hit_ratio = 0.0
 
